@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hulk</title>
+        <style>
+            :root{
+                --bg: #7b58af;
+                --purple-500: #5e408b;
+                --green-500: #84b02b;
+                --green-550: #7ba728;
+                --green-600: #598934;
+                --brown-500: #423e32;
+                --brown-550: #332b20;
+                --brown-600: #2a1f1c;
+            }
+            *,
+            :before,
+            *:after {
+                border: 0;
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                background-color: var(--bg);
+            }
+
+            .hulk {
+                width: 121px;
+                height: 121px;
+                background-color: var(--green-500);
+                overflow: hidden;
+                border-radius: 18px;
+                position: relative;
+            }
+
+            .hulk:after{
+                content: --;
+                position: absolute;
+                right: 0;
+                width: 61px;
+                top: 0;
+                background-color: var(--green-550);
+                height: inherit;
+            }
+            .head{
+                position: relative;
+                width: inherit;
+                background-color: var(--brown-550);
+                height: 25px;
+                z-index: 10;
+            }
+            .head:after{
+                content: --;
+                position: absolute;
+                width: 61px;
+                background-color: var(--brown-550);
+                height: inherit;
+                right: 0;
+            }
+            .hair{
+                width: 0;
+                height: 0;
+                position: absolute;
+                border-right: 10px solid transparent;
+                border-top: 10px solid var(--brown-550);
+                border-left: 10px solid transparent;
+                top: 25px;
+            }
+            .hair:nth-child(2){
+                left: 20px;
+            }
+            .hair:nth-child(3){
+                left: 40px;
+            }
+            .hair:nth-child(4){
+                left: 60px;
+            }
+            .hair:nth-child(5){
+                left: 80px;
+            }
+            .hair:nth-child(6){
+                left: 100px;
+            }
+            .hair:nth-child(4),
+            .hair:nth-child(5),
+            .hair:nth-child(6) {
+                border-top: 10px solid var(--brown-550);
+            }
+            .hair-right,
+            .hair-left {
+                position: absolute;
+                width: 22px;
+                height: 80px;
+                top: 0;
+                background-color: var(--brown-500);
+                border-bottom-left-radius: 8px;
+                border-bottom-right-radius: 8px;
+            }
+            .hair-right {
+                right: 0;
+                background-color: var(--brown-550);
+            }
+            .hair-left {
+                left: 0;
+                background-color: var(--brown-550);
+            }
+            .forehead {
+                position: relative;
+                top: 15px;
+                left: 40px;
+                z-index: 20;
+            }
+            .forehead:before,
+            .forehead:after {
+                position: absolute;
+                content: '';
+                background-color: var(--green-600);
+                height: 4px; 
+            }
+            .forehead:before {
+                width: 45px;
+            }
+            .forehead:after {
+                width: 25px;
+                top: 7px;
+                left: 8px;
+            }
+            .eyes {
+                position: relative;
+                z-index: 30;
+            }
+            .eye {
+                
+                height: 10px;
+                width: 20px;
+                background-color: var(--brown-600);
+                overflow: hidden;
+                position: absolute;
+                border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+                top: 30px;
+            }
+            .eye:before {
+                content: '';
+                position: absolute;
+                height: 5px;
+                width: 5px;
+                background-color: #fff;
+                border-radius: 50%;
+                left: 7px;
+                bottom: -1px;
+            }
+            .eye-left{
+                left: 30px;
+                transform: rotate(25deg);
+            }
+            .eye-right{
+                right: 30px;
+                transform: rotate(335deg);
+            }
+            .noise{
+                position: absolute;
+                width:12px;
+                height: 20px;
+                background-color: var(--green-600);
+                top: 60px;
+                left: 55px;
+                border-radius: 50% 55% 60% 65% / 60% 66% 77% 88%;
+                z-index: 40;
+            }
+            .mouth {
+                position:absolute;
+                height: 15px;
+                width: 30px;
+                background-color: var(--brown-600);
+                z-index: 30;
+                top: 85px;
+                left: 47px;
+                border-bottom-left-radius: 30px;
+                border-bottom-right-radius: 30px;
+                overflow: hidden;
+            }
+            .mouth::after {
+                content: "";
+                position: absolute;
+                height: 8px;
+                width: 100%;
+                background-color: #fff;
+                bottom: -1px;
+            }
+            .bubble {
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                background-color: var(--green-600);
+                border-radius: 50%;
+                left: -7px;
+                bottom: -5px;
+            }
+            .bubble-right {
+                right: -7px;
+                left: inherit;
+                z-index: 10;
+
+            }
+
+        </style>
+    </head>
+        <body>
+        <div class="hulk">
+            <div class="head">
+                <div class="hair"></div>
+                <div class="hair"></div>
+                <div class="hair"></div>
+                <div class="hair"></div>
+                <div class="hair"></div>
+                <div class="hair"></div>
+                <div class="hair-left"></div>
+                <div class="hair-right"></div>
+            </div>
+            <div class="forehead"></div>
+            <div class="eyes">
+                <div class="eye eye-left"></div>
+                <div class="eye eye-right"></div>
+            </div>
+            <div class="noise"></div>
+            <div class="mouth"></div>
+            <div class="bubble"></div>
+            <div class="bubble bubble-right"></div>
+        </div>
+        </body>
+    </html>
